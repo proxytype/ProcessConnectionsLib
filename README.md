@@ -1,2 +1,2 @@
 # ProcessConnectionsLib
-Simple Library for expose process connections
+Simple Library for expose process network connections
