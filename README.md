@@ -4,7 +4,12 @@ Simple Library for expose process network connections
 Usage:
 
 ```csharp
- class Program
+using ProcessConnectionsLib;
+using System;
+
+namespace ConsoleTest
+{
+    class Program
     {
         static void Main(string[] args)
         {
@@ -41,6 +46,10 @@ Usage:
             {
                 for (int i = 0; i < payloads.Length; i++)
                 {
+                    if (payloads[i] == null) {
+                        continue;
+                    }
+
                     Console.WriteLine("#" + payloads[i].PID + ": " + payloads[i].name);
                     Console.WriteLine("#TCP:" + payloads[i].tcpConnections.Count);
 
@@ -63,3 +72,4 @@ Usage:
             }
         }
     }
+}
