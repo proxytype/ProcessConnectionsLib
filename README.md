@@ -1,5 +1,8 @@
 # ProcessConnectionsLib
-Simple Library for expose process network connections
+Simple Library to expose network connections (TCP/UDP) per process,
+can be searchable by process id or process name.
+
+in first use the library must be initialize, the tables can be overwrited later.
 
 Usage:
 
