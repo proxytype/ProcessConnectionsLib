@@ -36,6 +36,10 @@ namespace ProcessConnectionsLib.Win32
             UDP_TABLE_OWNER_MODULE
         }
 
+        public enum UDP_ROW_STATE
+        {
+            ESTABLISHED
+        }
 
         //expose signature, importing ip helper api
         [DllImport("iphlpapi.dll", SetLastError = true)]

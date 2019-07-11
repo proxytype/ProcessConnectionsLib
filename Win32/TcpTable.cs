@@ -145,4 +145,4 @@ namespace ProcessConnectionsLib.Win32
         }
     }
 }
-}
+

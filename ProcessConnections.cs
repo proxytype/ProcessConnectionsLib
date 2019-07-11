@@ -80,6 +80,7 @@ namespace ProcessConnectionsLib
                     {
                         ConnectionPayload connection = new ConnectionPayload();
                         connection.protocol = ConnectionPayload.NETWORK_PROTOCOL.UDP;
+                        connection.state = UdpTable.UDP_ROW_STATE.ESTABLISHED.ToString();
                         connection.address = NetworkTranslator.convertUintToIP(win32UdpRows[i].LocalAddr);
                         connection.sourcePort = NetworkTranslator.convertBytesToPort(win32UdpRows[i].localPort1, win32UdpRows[i].localPort2, win32UdpRows[i].localPort3, win32UdpRows[i].localPort4);
                         connection.PID = win32UdpRows[i].owningPid;
