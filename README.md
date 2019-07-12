@@ -2,6 +2,8 @@
 Simple Library to expose network connections (TCP/UDP) per process, can be searchable by process id or process name.
 you can initialize the connections tables when you create instance of ProcessConnection class or overwrite the table using **initializeTables()** function.
 
+![alt text](https://raw.githubusercontent.com/proxytype/ProcessConnectionsLib/master/connectionLib.gif)
+
 Usage:
 
 ```csharp
