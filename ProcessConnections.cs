@@ -111,22 +111,69 @@ namespace ProcessConnectionsLib
             
         }
 
-      
         public ProcessConnectionsPayload[] getProcessConnectionsByName(string name)
         {
             Process[] processes = Process.GetProcessesByName(name);
             return GetProcessesConnections(processes);
         }
 
-        public ProcessConnectionsPayload getProcessConnectionsByID(int id)
-        {
-            Process process = Process.GetProcessById(id);
+        public ProcessConnectionsPayload[] getProcessConnectionsByName(string[] names) {
 
-            if (process == null) {
-                return null;
+            List<Process> lstProcesses = new List<Process>();
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                Process[] processes = Process.GetProcessesByName(names[i]);
+                if(processes.Length != 0)
+                {
+                    lstProcesses.AddRange(processes);
+                }
             }
 
-            return getProcessConnections(process);
+            return GetProcessesConnections(lstProcesses.ToArray());
+        }
+
+        public ProcessConnectionsPayload getProcessConnectionsByID(int id)
+        {
+            try
+            {
+                Process process = Process.GetProcessById(id);
+
+                if (process == null)
+                {
+                    return null;
+                }
+
+                return getProcessConnections(process);
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+            
+        }
+
+        public ProcessConnectionsPayload[] getProcessConnectionsByID(int[] ids) {
+
+            List<ProcessConnectionsPayload> lstProcesses = new List<ProcessConnectionsPayload>();
+            for (int i = 0; i < ids.Length; i++)
+            {
+                try
+                {
+                    ProcessConnectionsPayload payload = getProcessConnectionsByID(ids[i]);
+                    if (payload != null) {
+                        lstProcesses.Add(payload);
+                    }
+                    
+                }
+                catch (Exception ex)
+                {}
+
+            }
+
+            return lstProcesses.ToArray();
+
         }
 
 
